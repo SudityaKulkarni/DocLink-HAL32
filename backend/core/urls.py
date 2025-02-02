@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView ,SpectacularSwaggerView
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('doctors.urls')),
-    path('', include('patients.urls')),
+    path('doctors/', include('doctors.urls')),
+    path('patients/', include('patients.urls')),
     path('api/schema/',SpectacularAPIView.as_view(),name = "schema"),
     path('api/schema/docs/',SpectacularSwaggerView.as_view(url_name = "schema")),
 ]

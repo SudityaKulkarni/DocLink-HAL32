@@ -5,7 +5,7 @@ class Doctor(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
-    # image = models.TextField()
+    image = models.ImageField(upload_to='doctor_images/',blank = True ,null = True)
     speciality = models.CharField(max_length=255)
     degree = models.CharField(max_length=255)
     experience = models.TextField(blank=True, default="")

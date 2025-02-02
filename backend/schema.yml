@@ -309,6 +309,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/Patient'
           description: ''
+  /patients/:
+    get:
+      operationId: patients_list
+      tags:
+      - patients
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Patient'
+          description: ''
   /patients/{id}/:
     get:
       operationId: patients_retrieve
